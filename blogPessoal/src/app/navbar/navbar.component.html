@@ -1,3 +1,4 @@
+
 <div class="container-fluid d-flex justify-content-center">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -14,11 +15,27 @@
         <li class="nav-item">
           <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/feed'>Feed</a>
         </li>
+
+        <div *ngIf='auth.btnLogin()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/login'>Login</a>
+          </li>
+        </div>
+
+        <div *ngIf='auth.btnLogin()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/cadastro'>Cadastro</a>
+          </li>
+        </div>
+
+        <div *ngIf='auth.btnSair()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" (click)='sair()'>Sair</a>
+          </li>
+        </div>
       </ul>
 
     </div>
   </nav>
 
 </div>
-
-
