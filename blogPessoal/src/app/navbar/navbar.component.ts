@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
   }
 
   sair(){
-    this.router.navigate(['/login'])
-    localStorage.clear()
+    this.router.navigate(['/login']);
+    localStorage.clear();
   }
 }
 

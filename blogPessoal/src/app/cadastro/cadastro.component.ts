@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DebugEventListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
@@ -11,7 +11,7 @@ import { AuthService } from '../service/auth.service';
 })
 export class CadastroComponent implements OnInit {
 
-  user: User = new User()
+  user: User = new User();
   senha: string
 
   constructor(
@@ -24,8 +24,9 @@ export class CadastroComponent implements OnInit {
   }
 
   conferirSenha(event: any){
-    this.senha = event.target.value
+    this.senha = event.target.value;
   }
+
 
   cadastrar() {
     if (this.senha === this.user.senha) {
@@ -36,7 +37,7 @@ export class CadastroComponent implements OnInit {
       })
     }
     else{
-      alert('Suas senhas não conferem')
+      alert('Suas Senhas não são iguais')
     }
   }
 }

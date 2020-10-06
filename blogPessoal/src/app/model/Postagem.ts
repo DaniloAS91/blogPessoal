@@ -1,6 +1,6 @@
 import { Tema } from './Tema';
 
-export class postagem{
+export class Postagem{
   public id: number;
   public titulo: string;
   public texto: string;
