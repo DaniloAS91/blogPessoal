@@ -1,41 +1,85 @@
 
-<div class="container-fluid d-flex justify-content-center">
+<html>
+  <head>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  </head>
+  <body>
+    <div class="area"></div>
+        <nav class="main-menu">
+            <ul>
+                <li>
+                    <a routerLink='/home'>
+                      <fa-icon [icon]="faFlag" class="fa-2x p-3 mr-2"></fa-icon>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                    </a>
+                </li>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+                <div *ngIf='auth.btnLogin()'>
+                  <li class="has-subnav" >
+                      <a routerLink='/login'>
+                        <fa-icon [icon]="faUser" class="fa-2x p-3 mr-2"></fa-icon>
+                          <span class="nav-text">
+                              Login
+                          </span>
+                      </a>
+                  </li>
+                </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link texto text-monospace text-uppercase font-weight-bold p" routerLink='/home'>Home <span class="sr-only">(página atual)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/feed'>Feed</a>
-        </li>
+                <div *ngIf='auth.btnLogin()'>
+                  <li class="has-subnav">
+                    <a routerLink='/cadastro'>
+                      <fa-icon [icon]="faAddressCard" class="fa-2x p-3 mr-2"></fa-icon>
+                        <span class="nav-text">
+                            Cadastro
+                        </span>
+                    </a>
+                </li>
 
-        <div *ngIf='auth.btnLogin()'>
-          <li class="nav-item">
-            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/login'>Login</a>
-          </li>
-        </div>
+                </div>
 
-        <div *ngIf='auth.btnLogin()'>
-          <li class="nav-item">
-            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" routerLink='/cadastro'>Cadastro</a>
-          </li>
-        </div>
 
-        <div *ngIf='auth.btnSair()'>
-          <li class="nav-item">
-            <a class="nav-link texto text-monospace text-uppercase font-weight-bold" (click)='sair()'>Sair</a>
-          </li>
-        </div>
-      </ul>
+                <li class="has-subnav" >
+                    <a routerLink='/feed'>
+                      <fa-icon [icon]="faNewspaper" class="fa-2x p-3 mr-2"></fa-icon>
+                        <span class="nav-text">
+                            Feed
+                        </span>
+                    </a>
 
-    </div>
-  </nav>
+                </li>
 
-</div>
+                <li *ngIf='auth.btnLogin()'>
+                   <a routerLink='/cadastro-tema'>
+                    <fa-icon [icon]="faClipboard" class="fa-2x p-3 mr-2"></fa-icon>
+                        <span class="nav-text">
+                            Temas
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                   <a href="#">
+                        <fa-icon [icon]="faMap" class="fa-2x p-3 ml-0 mr-2"></fa-icon>
+                        <span class="nav-text">
+                            Maps
+                        </span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <ul class="logout" *ngIf='auth.btnSair()'>
+                <li>
+                   <a href="#" (click)='sair()'>
+                    <fa-icon [icon]="faTimesCircle" class="fa-2x p-3 mx-2"></fa-icon>
+                        <span class="nav-text" >
+                            Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+  </body>
+</html>

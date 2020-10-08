@@ -17,7 +17,7 @@
 
         <div class="form-group">
           <label class="text-monospace" for="texto">Texto:</label>
-          <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui seu texto" [(ngModel)]='postagem.titulo'></textarea>
+          <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui seu texto" [(ngModel)]='postagem.texto'></textarea>
       </div>
 
       <div class="row d-flex align-items-end">
@@ -86,7 +86,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p class="card-text" aria-describedby="texto"> {{item.data}} </p>
+                    <p class="card-text" aria-describedby="texto"> {{item.texto}} </p>
                     <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace">
                       Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
                     </small>
