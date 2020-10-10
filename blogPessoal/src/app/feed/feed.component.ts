@@ -1,3 +1,6 @@
+import { environment } from './../../environments/environment.prod';
+
+import { Router } from '@angular/router';
 import { AlertasService } from './../service/alertas.service';
 import { TemaService } from './../service/tema.service';
 import { PostagemService } from './../service/postagem.service';
@@ -27,14 +30,25 @@ export class FeedComponent implements OnInit {
   constructor(
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private alert: AlertasService
+    private alert: AlertasService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+
+    let token = environment.token
+
+    if (token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Faça o login antes de entrar no feed...')
+    }
+    else{
+      this.findAllPostagens()
+      this.findAllTemas()
+    }
+
     window.scroll(0, 0)
 
-    this.findAllPostagens()
-    this.findAllTemas()
   }
 
   findAllPostagens(){

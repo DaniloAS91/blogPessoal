@@ -50,7 +50,7 @@
 
                 </li>
 
-                <li *ngIf='auth.btnLogin()'>
+                <li>
                    <a routerLink='/cadastro-tema'>
                     <fa-icon [icon]="faClipboard" class="fa-2x p-3 mr-2"></fa-icon>
                         <span class="nav-text">
@@ -59,20 +59,11 @@
                     </a>
                 </li>
 
-                <li>
-                   <a href="#">
-                        <fa-icon [icon]="faMap" class="fa-2x p-3 ml-0 mr-2"></fa-icon>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-
             </ul>
 
             <ul class="logout" *ngIf='auth.btnSair()'>
                 <li>
-                   <a href="#" (click)='sair()'>
+                   <a routerLink='/login' (click)='sair()'>
                     <fa-icon [icon]="faTimesCircle" class="fa-2x p-3 mx-2"></fa-icon>
                         <span class="nav-text" >
                             Logout

@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment.prod';
+
 import { AlertasService } from './../service/alertas.service';
 import { Router } from '@angular/router';
 import { TemaService } from './../service/tema.service';
@@ -22,7 +24,17 @@ export class PostTemaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.findAllTemas()
+
+    let token = environment.token
+
+    if (token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Faça o login antesng de entrar no feed...')
+    }
+    if(token !== ''){
+      this.findAllTemas()
+    }
+
   }
 
   findAllTemas(){

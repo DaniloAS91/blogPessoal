@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment.prod';
+
 import { AlertasService } from './../service/alertas.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,8 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-    private alert: AlertasService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,12 +26,8 @@ export class LoginComponent implements OnInit {
   entrar(){
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
-      localStorage.setItem('token', this.userLogin.token)
+      environment.token = this.userLogin.token
       this.router.navigate(['/feed'])
-    },err => {
-      if (err.status == "401" || err.status == "500") {
-        this.alert.showAlertDanger("Email e Senha Incorreta ou Não Cadastrado!")
-      }
     })
   }
 

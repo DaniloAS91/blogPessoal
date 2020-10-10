@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
 .parallax {
   background-image: url('https://i.imgur.com/xPkTU03.jpg');
 
@@ -11,8 +14,6 @@
 
 /* Inicio cards da home */
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
-@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0057 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
